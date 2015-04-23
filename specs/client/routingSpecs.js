@@ -8,8 +8,8 @@ describe('Routing', function () {
 
   it('Should have /signup route, template, and controller', function () {
     expect($route.routes['/signup']).to.be.ok();
-    // expect($route.routes['/signup'].controller).to.be('AuthController');
-    // expect($route.routes['/signup'].templateUrl).to.be('app/auth/signup.html');
+    expect($route.routes['/signup'].controller).to.be('AuthController');
+    expect($route.routes['/signup'].templateUrl).to.be('app/auth/signup.html');
   });
 
   it('Should have /signin route, template, and controller', function () {

@@ -4,7 +4,6 @@ angular.module('shortly.services', [])
   var getLinks = function($scope) {
     $http.get('/api/links')
     .success(function(data) {
-      console.log(data);
       $scope.data.links = data;
       // return data;
     })
@@ -13,8 +12,19 @@ angular.module('shortly.services', [])
     });
   };
 
+  var addLink = function() {
+    $http.post('/api/links')
+    .success(function() {
+      console.log("successfully posted to /api/links");
+    })
+    .error(function(data, error){
+      console.log('error on addLinks');
+    });
+  };
+
   return {
-    getLinks: getLinks
+    getLinks: getLinks,
+    addLink: addLink
   };
 })
 .factory('Auth', function ($http, $location, $window) {
